@@ -1,0 +1,18 @@
+.header__logo{
+    width: 50px;
+}
+.navbar{
+    padding: 10px 100px;
+}
+.promocao{
+    display: block;
+    width: 100%;
+}
+.history__content{
+    font-size: 15px;
+    background-color: #F8F9FA;
+    margin: 100px auto;
+    width: 90%;
+    padding: 20px;
+    
+}

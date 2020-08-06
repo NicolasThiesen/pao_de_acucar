@@ -1,0 +1,29 @@
+.input-container{
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.icon{
+    height: 100%;
+    padding:  15px;
+    background: dodgerblue;
+    color:white;
+    font-size: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+.icon:hover{
+  background: #0080FF;
+}
+.input-field{
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+.msg{
+  width: 100%;
+  font-size: 16px;
+  display: none;
+}
+

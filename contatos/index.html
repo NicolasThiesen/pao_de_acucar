@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/scr.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lista de Contatos</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="../img/logo.png" alt="Logo Pão de Açúcar" class="header__logo"></a>
+      
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/nossa-historia">Nossa História</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Produtos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/produto/vinhos">Vinhos</a>
+              <a class="dropdown-item" href="/produto/frutas">Frutas</a>
+              <a class="dropdown-item" href="/produto/verdura">Verduras</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/contatos">Contatos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div>
+      <h1 class="text-center my-5">Lista de Contatos</h1>
+      <div class="text-center">
+      <button type="button" class="btn btn-lg btn-primary" id="inserir" data-toggle="modal" data-target="#modalid">Contato <i class="fas fa-plus-circle"></i></button>
+      </div>
+    <table class="table table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nome:</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Assunto</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Mensagem</th>
+      <th scope="col">Remover</th>
+    </tr>
+  </thead>
+  <tbody id="table">
+
+  </tbody>
+  </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalid" tabindex="-1" role="dialog" aria-labelledby="AdicionarContato" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Entre em contato conosco</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="mx-auto mt-4" action="php/insert.php" method="post">
+            <div class="input-container" data-balloon="Digite o Nome do Usuário." data-balloon-pos="left">
+              <i class="far fa-user-circle icon"></i>
+              <input type="text" class="input-field" id="nome" placeholder="Nome:" name="nome">
+            </div>
+            <div class="alert alert-danger msg" id="erro_nome">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="input-container" data-balloon="Digite o E-mail do Usuário." data-balloon-pos="left">
+              <i class="fas fa-at icon"></i>
+              <input type="email" class="input-field" id="email" placeholder="E-mail" name="email">
+            </div>
+            <div class="alert alert-danger msg" id="erro_email">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="input-container" data-balloon="Digite o Telefone Celular do Usuário." data-balloon-pos="left">
+              <i class="fas fa-phone icon"></i>
+              <input type="text" class="input-field" id="cel" placeholder="Celular" name="celular">
+            </div>
+            <div class="alert alert-danger msg" id="erro_cel">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="input-container" data-balloon="Digite o Assunto da Mensagem." data-balloon-pos="left">
+              <i class="fas fa-bullhorn icon"></i>
+              <input type="text" class="input-field" id="assunto" placeholder="Assunto" name="assunto">
+            </div>
+            <div class="alert alert-danger msg" id="erro_ass">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="input-container" data-balloon="Selecione o tipo do produto." data-balloon-pos="left">
+              <b>Tipo do produto:</b>
+              <select name="produto" id="produto" type="text">
+                <option value="">Selecionar...</option>
+                <option value="Vinho">Vinho</option>
+                <option value="Fruta">Fruta</option>
+                <option value="Verdura">Verdura</option>
+              </select>
+            </div>
+            <div class="alert alert-danger msg" id="erro_prod">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="input-container" data-balloon="Se quizer digite uma mensagem." data-balloon-pos="left">
+              <i class="fas fa-comment icon"></i>
+              <input type="text" class="input-field" id="men" maxlength="200" placeholder="Mensagem" name="mensagem">
+            </div><br>
+            <div class="alert alert-danger msg" id="erro_mem">
+              <span class="texto">Alerta de erro!</span>
+            </div><br>
+            <div class="modal-footer">
+              <button class="btn btn-primary" id="limpar" type="reset">Limpar items</button>
+              <button class="btn btn-primary" id="salvar" type="button">Salvar mudanças</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
